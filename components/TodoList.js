@@ -1,10 +1,11 @@
 import React from "react";
 import { StyleSheet, ScrollView, Text } from "react-native";
+import TodoListItem from "./TodoItem";
 
 const TodoList = () => {
   return (
     <ScrollView contentContainerStyle={styles.listContainer}>
-      <Text>TodoList</Text>
+      <TodoListItem />
     </ScrollView>
   );
 };
