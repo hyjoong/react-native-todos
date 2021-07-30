@@ -1,12 +1,23 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, TextInput, View, Text } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  TextInput,
+  View,
+  Text,
+  ScrollView,
+} from "react-native";
+import TodoInsert from "./components/TodoInsert";
 
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.appTitle}>Todolist</Text>
       <View style={styles.card}>
-        <TextInput style={styles.input} placeholder="input todo" />
+        <TodoInsert />
+        <ScrollView>
+          <Text>TodoList</Text>
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
