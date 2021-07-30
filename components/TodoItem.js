@@ -2,18 +2,24 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 
-const TodoListItem = () => {
+const TodoListItem = ({ textValue, id, checked, onRemove, onToggle }) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
-        <View style={styles.completeCircle}>
-          <Icon name="circledowno" size={30} color="#3143e8" />
-        </View>
-      </TouchableOpacity>
-      <Text style={[styles.text, styles.strikeText]}>운동하기</Text>
-      <TouchableOpacity style={styles.buttonContainer}>
-        <Text style={styles.buttonText}>
-          <Icon name="delete" size={30} color="#e33057" />
+      <TouchableOpacity onPressOut={onToggle(id)}>
+        {checked ? (
+          <View style={styles.completeCircle}>
+            <Icon name="circledowno" size={30} color="#3143e8" />
+          </View>
+        ) : (
+          <View style={styles.circle} />
+        )}
+        <Text
+          style={[
+            styles.text,
+            checked ? styles.strikeText : styles.unstrikeText,
+          ]}
+        >
+          {textValue}
         </Text>
       </TouchableOpacity>
     </View>
